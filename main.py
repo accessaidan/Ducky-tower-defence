@@ -1,17 +1,26 @@
-import pygame
+import pygame as pg
+import constants as c
+pg.init()
 
-pygame.init()
+#create clock
+clock = pg.time.Clock()
 
-screen_width = 800
-screen_height = 600
 
-screen = pygame.display.set_mode((screen_width,screen_height))
 
+#making screen
+screen = pg.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
+
+#game loop
 run = True
 while run:
 
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+    clock.tick(c.FPS)
+    
+    #event handler
+    for event in pg.event.get():
+      
+        #quit program
+        if event.type == pg.QUIT:
             run = False
 
-pygame.quit()
+pg.quit()
