@@ -13,7 +13,7 @@ screen = pg.display.set_mode((c.SCREEN_WIDTH,c.SCREEN_HEIGHT))
 pg.display.set_caption("Tower defence")
 
 #load images
-enemy_image = pg.image.load('C:\\Users\Aidan Hedges\\Documents\\coding\\games\\Ducky-tower-defence\\assets\\images\\enemies\\enemy_1.png').convert_alpha()
+enemy_image = pg.image.load('assets/images/enemies/enemy_1.png').convert_alpha()
 
 #create group
 enemy_group = pg.sprite.Group()
@@ -28,6 +28,9 @@ run = True
 while run:
 
     clock.tick(c.FPS)
+
+    #draw groups
+    enemy_group.draw(screen)
     
     #event handler
     for event in pg.event.get():
@@ -35,5 +38,8 @@ while run:
         #quit program
         if event.type == pg.QUIT:
             run = False
+
+    #update display
+    pg.display.flip()
 
 pg.quit()
